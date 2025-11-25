@@ -1,0 +1,23 @@
+services:
+  vr-dev:
+    build:
+      context: ../
+      dockerfile: docker/Dockerfile
+    container_name: vr-dev
+    gpus: all
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=all
+      - DISPLAY=${DISPLAY}
+    volumes:
+      - ../:/workspace
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    working_dir: /workspace
+    network_mode: host
+    command: [
+        "bash",
+        # "-c",
+        # "mkdir -p build && cd build && cmake -G Ninja .. && ninja && ./bino_app",
+      ]
+    stdin_open: true
+    tty: true
