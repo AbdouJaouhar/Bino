@@ -4,6 +4,11 @@ services:
       context: ../
       dockerfile: docker/Dockerfile
     container_name: vr-dev
+    privileged: true
+    devices:
+      - "/dev/bus/usb/:/dev/bus/usb"
+    device_cgroup_rules:
+      - "c 189:* rmw"
     gpus: all
     environment:
       - NVIDIA_VISIBLE_DEVICES=all
@@ -12,12 +17,12 @@ services:
     volumes:
       - ../:/workspace
       - /tmp/.X11-unix:/tmp/.X11-unix
+      - /etc/udev/rules.d:/etc/udev/rules.d
     working_dir: /workspace
     network_mode: host
-    command: [
-        "bash",
-        # "-c",
-        # "mkdir -p build && cd build && cmake -G Ninja .. && ninja && ./bino_app",
-      ]
     stdin_open: true
     tty: true
+    cap_add:
+      - SYS_ADMIN
+      - SYS_PTRACE
+      - SYS_RAWIO

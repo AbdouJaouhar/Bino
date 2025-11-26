@@ -32,10 +32,3 @@ Makefile
 *.zip
 *.tar
 *.ckpt
-
-src/
-include/
-config/
-article/
-CMakeLists.txt
-articles/
