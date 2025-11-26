@@ -4,10 +4,22 @@ Bino is an experimental project designed to explore both classical and modern te
 
 ## Quick Start
 
-Build and run in Docker:
+If you want to run it in Docker:
 
 ```bash
 docker compose -f docker/docker-compose.yaml up
+```
+
+Build entire project:
+```bash
+./build.sh
+```
+
+## Tests
+
+test camera connectivity
+```bash
+./build/test_camera_connectivity 640 480 0 30 CAM_A
 ```
 
 ### Docker GTK Fix
