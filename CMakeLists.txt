@@ -17,10 +17,19 @@ include_directories(${CMAKE_SOURCE_DIR}/include)
 
 add_executable(bino_app
     src/main.cpp
+    src/App/MainWindow.cpp
+    src/Camera/CameraManager.cpp
+    include/Bino/App/MainWindow.hpp
+    include/Bino/Camera/CameraManager.hpp
+    include/Bino/Camera/DepthAIStereoCamera.hpp
 )
 
 target_link_libraries(bino_app
+    Qt6::Core
     Qt6::Widgets
+    Qt6::Gui
+    ${OpenCV_LIBS}
+    depthai::core
 )
 
 add_executable(test_camera_connectivity

@@ -65,7 +65,10 @@ echo "[*] Building depthai-core..."
 cmake -S depthai-core -B depthai-build \
     -D CMAKE_BUILD_TYPE=Release \
     -D BUILD_SHARED_LIBS=ON \
-    -D CMAKE_INSTALL_PREFIX=/usr/local
+    -D CMAKE_INSTALL_PREFIX=/usr/local \
+    -D BUILD_SHARED_LIBS=ON \
+    -D BUILD_TESTS=OFF \
+    -D BUILD_EXAMPLES=OFF
 
 cmake --build depthai-build --parallel 4 --config Release
 sudo cmake --install depthai-build

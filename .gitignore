@@ -32,3 +32,6 @@ Makefile
 *.zip
 *.tar
 *.ckpt
+
+depthai-*
+.cache

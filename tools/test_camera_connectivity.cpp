@@ -44,7 +44,6 @@ int main(int argc, char* argv[]) {
 
     dai::Pipeline pipeline(device);
 
-    // Parse arguments and create cameras
     std::map<dai::CameraBoardSocket, std::shared_ptr<dai::node::Camera>> cams;
     std::vector<std::shared_ptr<dai::MessageQueue>> queues;
     std::vector<FPSCounter> fpsCounters;
